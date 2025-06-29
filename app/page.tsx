@@ -211,14 +211,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative w-full px-4 sm:px-8 md:px-12 lg:px-20 py-20 sm:py-32 md:py-40 bg-[#f3f0e8] hero-section-mobile">
         <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] hero-image-container-mobile">
-          {/* Background image */}
-          <Image
-            src="/bg-below.png"
-            alt="Ocean waves background"
-            fill
-            className="object-cover"
-            priority
-          />
+            <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="object-cover w-full h-full absolute inset-0"
+            >
+            <source src="https://videos.pexels.com/video-files/1918465/1918465-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+            </video>
 
           {/* Mobile background overlay for better text contrast */}
           <div className="hero-background-overlay-mobile md:hidden"></div>
