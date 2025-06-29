@@ -1,47 +1,62 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="absolute top-0 left-0 z-10 p-6">
-        <div className="text-white">
-          <h1 className="text-lg font-light">Dr. Serena Blake</h1>
-          <p className="text-sm opacity-90">Psychological Services</p>
+        <div className="flex items-center">
+          <div className="mr-2">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 5L5 20M20 5L35 20M5 20L20 35M35 20L20 35"
+                stroke="#3A3A3A"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+          <div className="text-[#3A3A3A]">
+            <h1 className="text-lg font-light">Jennifer Hahm, Ph.D.</h1>
+            <p className="text-sm">Psychological Services</p>
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
-        <div className="absolute inset-0">
+      <section className="relative w-full px-20 py-40">
+        <div className="relative w-full h-[80vh]">
+          {/* Background image */}
           <Image
-            src="/images/hero-bg.jpg"
+            src="/bg-below.png"
             alt="Ocean waves background"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/20" />
-        </div>
 
-        <div className="relative z-10 text-center text-white max-w-4xl px-6">
-          <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight">
-            Psychological Care for
-            <br />
-            Change, Insight, and Well-Being
-          </h1>
-          <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
-            I provide individual psychotherapy to adults who seek to heal from
-            trauma, anxiety, depression, and other mental health concerns. My
-            approach is integrative, drawing from evidence-based practices.
-          </p>
-          <Button
-            size="lg"
-            className="bg-teal-600/80 hover:bg-teal-700/80 text-white px-8 py-3 rounded-full text-lg backdrop-blur-sm border border-white/20"
-          >
-            Schedule a Consultation
-          </Button>
+          {/* Content */}
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
+            <h1 className="text-5xl md:text-6xl font-serif mb-6 leading-tight">
+              Psychological Care for
+              <br />
+              Change, Insight, and Well-Being
+            </h1>
+            <p className="text-lg md:text-xl max-w-3xl mb-12 leading-relaxed">
+              Offering individual psychotherapy for adults via telehealth in
+              Michigan and
+              <span className="underline"> most U.S. states</span> through
+              PSYPACT participation.
+            </p>
+            <button className="bg-[#9db7ae] hover:bg-[#8aa399] text-white uppercase px-10 py-4 rounded-full text-sm font-medium tracking-wider">
+              Schedule a Consultation
+            </button>
+          </div>
         </div>
       </section>
 
@@ -109,7 +124,7 @@ export default function Home() {
           </h2>
 
           <div className="flex justify-center">
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed  max-w-6xl text-center">
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-10 max-w-6xl text-center">
               You may be led to therapy by anxiety, depression, relationship
               stress, past or recent trauma, grief and loss, self-esteem issues,
               or challenges with family, parenting, or parental relationships.
