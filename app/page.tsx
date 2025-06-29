@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ContactForm } from "@/components/contact-form";
 
 export default function Home() {
   return (
@@ -164,7 +165,7 @@ export default function Home() {
             <div className="text-center max-w-md mx-auto">
               <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
                 <Image
-                  src="/providers.png"
+                  src="/anxiety.png"
                   alt="Healthcare provider therapy"
                   fill
                   className="object-cover"
@@ -188,7 +189,7 @@ export default function Home() {
             <div className="text-center max-w-md mx-auto">
               <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
                 <Image
-                  src="/grief.png"
+                  src="/relationship.png"
                   alt="Trauma and grief therapy"
                   fill
                   className="object-cover"
@@ -338,6 +339,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section className="py-24 px-6 bg-[#fefefe]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-light text-gray-800 mb-6">
+              Get in Touch
+            </h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Ready to take the first step toward healing and growth? I'm here to support you on your journey. 
+              Please fill out the form below and I'll get back to you within 24-48 hours.
+            </p>
+          </div>
+          
+          <ContactForm />
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-[#f3f0e8] py-12 font-serif">
         <div className="max-w-4xl mx-auto text-center px-6">
@@ -347,8 +365,8 @@ export default function Home() {
 
           <div className="space-y-2 text-gray-600 mb-6 text-xl ">
             <p>serena@blakepsychology.com</p>
-            <p>123 Main Street, Suite 100</p>
-            <p>City, State 12345</p>
+            <p> 1287 Maplewood Drive,</p>
+            <p>Los Angeles, CA 90026</p>
             <p>(323) 555-0192</p>
           </div>
 
