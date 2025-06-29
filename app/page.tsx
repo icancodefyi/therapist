@@ -1,5 +1,12 @@
 import Image from "next/image";
 import "../app/globals.css";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 export default function Home() {
   return (
     <div className="min-h-[100vh] bg-white">
@@ -70,14 +77,15 @@ export default function Home() {
             </h2>
             <div className="space-y-6 text-lg font-2xl leading-relaxed font-light text-[#7e7e6b]">
               <p>
-                Finding time and opportunities to care for ourselves can be
-                incredibly challenging in today’s busy and demanding world. I
-                believe therapy offers a dedicated space for self-care,
-                providing the support and tools needed to improve this essential
-                practice. Therapy can help individuals identify and clarify
-                their goals, values, and the various elements that contribute to
-                their well-being, recognizing that these aspects vary from
-                person to person.
+                Dr. Serena Blake is a licensed clinical psychologist (PsyD)
+                based in Los Angeles, CA, with eight years of experience and
+                over 500 client sessions. She blends evidence-based
+                approaches—like cognitive-behavioral therapy and
+                mindfulness—with compassionate, personalized care to help you
+                overcome anxiety, strengthen relationships, and heal from
+                trauma. Whether you meet in her Maplewood Drive office or
+                connect virtually via Zoom, Dr. Blake is committed to creating a
+                safe, supportive space for you to thrive.
               </p>
               <p>
                 I am dedicated to supporting this journey by offering active
@@ -111,6 +119,9 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+        <div className="flex justify-center mt-20 py-20">
+          <div className="w-[70vw] border-t border-gray-400" />
         </div>
       </section>
 
@@ -160,7 +171,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-xl md:text-2xl font-serif font-medium text-gray-800 mb-4">
-                Therapy for Healthcare Providers and Students
+                Anxiety & Stress Management
               </h3>
               <p className="text-base text-gray-700 leading-relaxed">
                 The care you provide for others may be driving you to seek
@@ -184,7 +195,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-xl md:text-2xl font-serif font-medium text-gray-800 mb-4">
-                Therapy for Trauma and Grief
+                Relationship Counseling
               </h3>
               <p className="text-base text-gray-700 leading-relaxed">
                 Life’s challenges, whether a difficult childhood, a traumatic
@@ -207,7 +218,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-xl md:text-2xl font-serif font-medium text-gray-800 mb-4">
-                Therapy for Second Generation Individuals In Immigrant Families
+                Trauma Recovery
               </h3>
               <p className="text-base text-gray-700 leading-relaxed">
                 Second-generation individuals in immigrant families, born in the
@@ -232,7 +243,8 @@ export default function Home() {
 
           <div className="space-y-4 text-gray-700">
             <p className="text-lg">
-              <strong>Session Fee:</strong> $200
+              <strong>Session Fee:</strong> $200 / individual session & $240 /
+              couples session
             </p>
             <p className="text-lg">
               <strong>Insurance:</strong> Out-of-network provider
@@ -288,6 +300,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section  */}
+      <section className="py-24 px-6 bg-[#f3f0e8]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-light text-center text-gray-800 mb-16">
+            Frequently Asked Questions
+          </h2>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="border-b border-gray-200">
+              <AccordionTrigger className="text-left text-xl font-serif font-medium text-gray-800 hover:text-gray-600">
+                Do you accept insurance?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700 leading-relaxed pt-2">
+                No, but a superbill is provided for self-submission.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border-b border-gray-200">
+              <AccordionTrigger className="text-left text-xl font-serif font-medium text-gray-800 hover:text-gray-600">
+                Are online sessions available?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700 leading-relaxed pt-2">
+                Yes—all virtual sessions are conducted via Zoom.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border-b border-gray-200">
+              <AccordionTrigger className="text-left text-xl font-serif font-medium text-gray-800 hover:text-gray-600">
+                What is your cancellation policy?
+              </AccordionTrigger>
+              <AccordionContent className="text-gray-700 leading-relaxed pt-2">
+                24-hour notice is required for cancellations.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-[#f3f0e8] py-12 font-serif">
         <div className="max-w-4xl mx-auto text-center px-6">
@@ -296,10 +346,10 @@ export default function Home() {
           </h3>
 
           <div className="space-y-2 text-gray-600 mb-6 text-xl ">
-            <p>jennifer@example.com</p>
+            <p>serena@blakepsychology.com</p>
             <p>123 Main Street, Suite 100</p>
             <p>City, State 12345</p>
-            <p>(555) 123-4567</p>
+            <p>(323) 555-0192</p>
           </div>
 
           <div className="text-sm text-gray-500 space-y-1">
