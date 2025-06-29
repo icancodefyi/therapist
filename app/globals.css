@@ -9,19 +9,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-cormorant-garamond);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -64,19 +51,6 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
@@ -98,19 +72,6 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
@@ -122,16 +83,16 @@
   }
 }
 
-/* Custom ellipse button with responsive styles */
+/* Custom ellipse button */
 .custom-ellipse-btn {
   width: 270px;
   height: 94px;
   background-color: #94b0b0;
   color: white;
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 600; /* font-semibold */
+  font-size: 0.875rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em; /* tracking-wide */
+  letter-spacing: 0.05em;
   clip-path: ellipse(135px 47px at 50% 50%);
   display: flex;
   align-items: center;
@@ -203,28 +164,6 @@
   -webkit-backdrop-filter: blur(4px);
 }
 
-/* Mobile menu responsive improvements */
-@media (max-width: 640px) {
-  #mobile-menu {
-    width: 100vw;
-  }
-  
-  #mobile-menu nav ul {
-    padding-left: 0;
-  }
-  
-  #mobile-menu nav a {
-    font-size: 1.5rem;
-    padding: 0.75rem 0;
-  }
-}
-
-@media (min-width: 641px) {
-  #mobile-menu {
-    width: 400px;
-  }
-}
-
 /* Smooth menu item animations */
 #mobile-menu nav li {
   opacity: 0;
@@ -252,156 +191,7 @@
   animation: none;
 }
 
-/* Additional responsive utilities for small screens */
-@media (max-width: 640px) {
-  /* Ensure better spacing for mobile */
-  .mobile-spacing {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  /* Better text scaling for very small screens */
-  .mobile-text-scale {
-    font-size: clamp(0.875rem, 2.5vw, 1rem);
-  }
-  
-  /* Ensure images don't overflow on small screens */
-  .mobile-image-contain {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* Additional responsive improvements for image containers */
-@media (max-width: 480px) {
-  /* Adjust circular image containers for mobile */
-  .responsive-circle-container {
-    width: min(260px, 70vw) !important;
-    height: min(260px, 70vw) !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .responsive-circle-container {
-    width: min(240px, 80vw) !important;
-    height: min(240px, 80vw) !important;
-  }
-}
-
-/* Responsive improvements for grid layouts */
-@media (max-width: 768px) {
-  .responsive-grid-mobile {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-}
-
-/* Ensure proper text wrapping and spacing on small screens */
-@media (max-width: 640px) {
-  .responsive-text-mobile {
-    text-align: center;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  .responsive-padding-mobile {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-/* Additional responsive improvements for hero section */
-@media (max-width: 480px) {
-  .hero-responsive {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-  
-  .hero-content-responsive {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-/* Enhanced hero section responsive styles for better mobile experience */
-@media (max-width: 640px) {
-  /* Hero section mobile optimizations */
-  .hero-mobile-container {
-    min-height: 100vh;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  .hero-mobile-content {
-    padding: 1.5rem;
-    min-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .hero-mobile-title {
-    font-size: clamp(1.75rem, 7vw, 2.5rem);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  
-  .hero-mobile-subtitle {
-    font-size: clamp(0.95rem, 4vw, 1.125rem);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    max-width: 90%;
-    text-align: center;
-    padding: 0 0.5rem;
-  }
-  
-  .hero-mobile-button {
-    margin-top: 1rem;
-    transform: scale(0.95);
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-mobile-title {
-    font-size: clamp(1.5rem, 6.5vw, 2.25rem);
-    margin-bottom: 1.25rem;
-  }
-  
-  .hero-mobile-subtitle {
-    font-size: clamp(0.875rem, 3.8vw, 1rem);
-    margin-bottom: 1.75rem;
-    max-width: 95%;
-    padding: 0 0.25rem;
-  }
-  
-  .hero-mobile-button {
-    transform: scale(0.9);
-  }
-}
-
-@media (max-width: 360px) {
-  .hero-mobile-title {
-    font-size: clamp(1.375rem, 6vw, 2rem);
-    margin-bottom: 1rem;
-    line-height: 1.15;
-  }
-  
-  .hero-mobile-subtitle {
-    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-  }
-  
-  .hero-mobile-button {
-    transform: scale(0.85);
-  }
-}
-
-/* Improved hero section spacing and layout */
+/* Hero section mobile styles */
 @media (max-width: 640px) {
   .hero-section-mobile {
     padding: 0.75rem 0.5rem;
@@ -436,14 +226,6 @@
     text-align: center;
     padding: 2rem 1rem;
   }
-}
-
-/* Better text contrast and readability on mobile */
-@media (max-width: 640px) {
-  .hero-text-mobile-enhanced {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-  }
   
   .hero-title-mobile-enhanced {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -456,67 +238,9 @@
     font-weight: 400;
     opacity: 0.95;
   }
-}
-
-/* Enhanced header responsive styles */
-@media (max-width: 640px) {
-  /* Mobile header adjustments */
-  .mobile-header-spacing {
-    padding: 1.5rem 1rem;
-  }
   
-  .mobile-header-logo {
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  .mobile-header-text {
-    font-size: 0.875rem;
-    line-height: 1.25;
-  }
-  
-  .mobile-header-subtitle {
-    font-size: 0.75rem;
-    line-height: 1.25;
+  .hero-mobile-button {
+    margin-top: 1rem;
+    transform: scale(0.95);
   }
 }
-
-@media (max-width: 480px) {
-  .ultra-mobile-header {
-    padding: 1rem 0.75rem;
-  }
-  
-  .ultra-mobile-header-text {
-    font-size: 0.8rem;
-  }
-  
-  .ultra-mobile-header-subtitle {
-    font-size: 0.7rem;
-  }
-}
-
-/* Header layout improvements */
-.header-layout-responsive {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-@media (min-width: 768px) {
-  .header-layout-responsive {
-    gap: 1rem;
-  }
-}
-
-/* Ensure header text remains readable on all backgrounds */
-.header-text-contrast {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 640px) {
-  .header-text-contrast {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* Additional responsive improvements for the updated header */

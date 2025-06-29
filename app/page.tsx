@@ -1,19 +1,37 @@
 "use client";
-import Image from "next/image";
-import "../app/globals.css";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ContactForm } from "@/components/contact-form";
+import Image from "next/image";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Handle body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <div className="min-h-[100vh] bg-white">
       {/* Header */}
-      <header className="absolute top-0 left-0 z-50 w-full bg-transparent">
+      <header className="absolute top-0 left-0 z-50 w-full bg-[#f3f0e8]">
         <div className="flex items-center justify-between px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10">
           <div className="flex items-center space-x-4">
             <div className="flex-shrink-0">
@@ -44,24 +62,8 @@ export default function Home() {
 
           {/* Hamburger Button */}
           <button
-            id="menu-toggle"
-            className="relative z-50 flex items-center justify-center w-10 h-10 focus:outline-none group"
-            onClick={() => {
-              const menuToggle = document.getElementById("menu-toggle");
-              const mobileMenu = document.getElementById("mobile-menu");
-              const menuOverlay = document.getElementById("menu-overlay");
-              const body = document.body;
-              
-              if (mobileMenu && menuOverlay) {
-                mobileMenu.classList.remove("translate-x-full");
-                menuOverlay.classList.remove("hidden");
-                body.style.overflow = "hidden";
-                
-                if (menuToggle) {
-                  menuToggle.classList.add("menu-open");
-                }
-              }
-            }}
+            className={`relative z-50 flex items-center justify-center w-10 h-10 focus:outline-none group ${isMenuOpen ? 'menu-open' : ''}`}
+            onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             <div className="hamburger-lines">
@@ -74,7 +76,9 @@ export default function Home() {
           {/* Full Screen Side Menu */}
           <div
             id="mobile-menu"
-            className="fixed top-0 right-0 w-full h-full bg-[#f8f8f8] transform translate-x-full transition-transform duration-500 ease-out z-40"
+            className={`fixed top-0 right-0 w-full h-full bg-[#f8f8f8] transform transition-transform duration-500 ease-out z-40 ${
+              isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
           >
             <div className="flex flex-col h-full">
               {/* Header */}
@@ -108,23 +112,8 @@ export default function Home() {
                 
                 <button
                   id="menu-close"
-                  onClick={() => {
-                    const menuToggle = document.getElementById("menu-toggle");
-                    const mobileMenu = document.getElementById("mobile-menu");
-                    const menuOverlay = document.getElementById("menu-overlay");
-                    const body = document.body;
-                    
-                    if (mobileMenu && menuOverlay) {
-                      mobileMenu.classList.add("translate-x-full");
-                      menuOverlay.classList.add("hidden");
-                      body.style.overflow = "auto";
-                      
-                      if (menuToggle) {
-                        menuToggle.classList.remove("menu-open");
-                      }
-                    }
-                  }}
-                  className="text-[#4A4A4A] hover:text-gray-600 transition-colors duration-200 p-2"
+                  onClick={closeMenu}
+                  className="text-[#4A4A4A] hover:text-gray-600 transition-colors duration-200 p-2 cursor-pointer"
                   aria-label="Close menu"
                 >
                   <svg
@@ -151,22 +140,7 @@ export default function Home() {
                     <a
                       href="#about"
                       className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
-                      onClick={() => {
-                        const menuToggle = document.getElementById("menu-toggle");
-                        const mobileMenu = document.getElementById("mobile-menu");
-                        const menuOverlay = document.getElementById("menu-overlay");
-                        const body = document.body;
-                        
-                        if (mobileMenu && menuOverlay) {
-                          mobileMenu.classList.add("translate-x-full");
-                          menuOverlay.classList.add("hidden");
-                          body.style.overflow = "auto";
-                          
-                          if (menuToggle) {
-                            menuToggle.classList.remove("menu-open");
-                          }
-                        }
-                      }}
+                      onClick={closeMenu}
                     >
                       About
                     </a>
@@ -175,22 +149,7 @@ export default function Home() {
                     <a
                       href="#services"
                       className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
-                      onClick={() => {
-                        const menuToggle = document.getElementById("menu-toggle");
-                        const mobileMenu = document.getElementById("mobile-menu");
-                        const menuOverlay = document.getElementById("menu-overlay");
-                        const body = document.body;
-                        
-                        if (mobileMenu && menuOverlay) {
-                          mobileMenu.classList.add("translate-x-full");
-                          menuOverlay.classList.add("hidden");
-                          body.style.overflow = "auto";
-                          
-                          if (menuToggle) {
-                            menuToggle.classList.remove("menu-open");
-                          }
-                        }
-                      }}
+                      onClick={closeMenu}
                     >
                       Services
                     </a>
@@ -199,22 +158,7 @@ export default function Home() {
                     <a
                       href="#rates"
                       className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
-                      onClick={() => {
-                        const menuToggle = document.getElementById("menu-toggle");
-                        const mobileMenu = document.getElementById("mobile-menu");
-                        const menuOverlay = document.getElementById("menu-overlay");
-                        const body = document.body;
-                        
-                        if (mobileMenu && menuOverlay) {
-                          mobileMenu.classList.add("translate-x-full");
-                          menuOverlay.classList.add("hidden");
-                          body.style.overflow = "auto";
-                          
-                          if (menuToggle) {
-                            menuToggle.classList.remove("menu-open");
-                          }
-                        }
-                      }}
+                      onClick={closeMenu}
                     >
                       Rates & Insurance
                     </a>
@@ -223,22 +167,7 @@ export default function Home() {
                     <a
                       href="#faq"
                       className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
-                      onClick={() => {
-                        const menuToggle = document.getElementById("menu-toggle");
-                        const mobileMenu = document.getElementById("mobile-menu");
-                        const menuOverlay = document.getElementById("menu-overlay");
-                        const body = document.body;
-                        
-                        if (mobileMenu && menuOverlay) {
-                          mobileMenu.classList.add("translate-x-full");
-                          menuOverlay.classList.add("hidden");
-                          body.style.overflow = "auto";
-                          
-                          if (menuToggle) {
-                            menuToggle.classList.remove("menu-open");
-                          }
-                        }
-                      }}
+                      onClick={closeMenu}
                     >
                       FAQ
                     </a>
@@ -247,22 +176,7 @@ export default function Home() {
                     <a
                       href="#contact"
                       className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
-                      onClick={() => {
-                        const menuToggle = document.getElementById("menu-toggle");
-                        const mobileMenu = document.getElementById("mobile-menu");
-                        const menuOverlay = document.getElementById("menu-overlay");
-                        const body = document.body;
-                        
-                        if (mobileMenu && menuOverlay) {
-                          mobileMenu.classList.add("translate-x-full");
-                          menuOverlay.classList.add("hidden");
-                          body.style.overflow = "auto";
-                          
-                          if (menuToggle) {
-                            menuToggle.classList.remove("menu-open");
-                          }
-                        }
-                      }}
+                      onClick={closeMenu}
                     >
                       Contact
                     </a>
@@ -275,22 +189,7 @@ export default function Home() {
                 <a
                   href="#contact"
                   className="block w-full py-4 text-center bg-[#94b0b0] text-white rounded-lg hover:bg-[#8aa399] transition-colors duration-300 text-lg font-light"
-                  onClick={() => {
-                    const menuToggle = document.getElementById("menu-toggle");
-                    const mobileMenu = document.getElementById("mobile-menu");
-                    const menuOverlay = document.getElementById("menu-overlay");
-                    const body = document.body;
-                    
-                    if (mobileMenu && menuOverlay) {
-                      mobileMenu.classList.add("translate-x-full");
-                      menuOverlay.classList.add("hidden");
-                      body.style.overflow = "auto";
-                      
-                      if (menuToggle) {
-                        menuToggle.classList.remove("menu-open");
-                      }
-                    }
-                  }}
+                  onClick={closeMenu}
                 >
                   Schedule Consultation
                 </a>
@@ -301,23 +200,10 @@ export default function Home() {
           {/* Overlay */}
           <div
             id="menu-overlay"
-            onClick={() => {
-              const menuToggle = document.getElementById("menu-toggle");
-              const mobileMenu = document.getElementById("mobile-menu");
-              const menuOverlay = document.getElementById("menu-overlay");
-              const body = document.body;
-              
-              if (mobileMenu && menuOverlay) {
-                mobileMenu.classList.add("translate-x-full");
-                menuOverlay.classList.add("hidden");
-                body.style.overflow = "auto";
-                
-                if (menuToggle) {
-                  menuToggle.classList.remove("menu-open");
-                }
-              }
-            }}
-            className="fixed inset-0 bg-black bg-opacity-30 z-30 hidden backdrop-blur-sm"
+            onClick={closeMenu}
+            className={`fixed inset-0 bg-black bg-opacity-30 z-30 backdrop-blur-sm ${
+              isMenuOpen ? 'block' : 'hidden'
+            }`}
           ></div>
         </div>
       </header>
