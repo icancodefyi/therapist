@@ -1,8 +1,8 @@
 import Image from "next/image";
-
+import "../app/globals.css";
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-[100vh] bg-white">
       {/* Header */}
       <header className="absolute top-0 left-0 z-10 p-6">
         <div className="flex items-center">
@@ -29,7 +29,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full px-20 py-40">
+      <section className="relative w-full px-20 py-40 bg-[#f3f0e8]">
         <div className="relative w-full h-[80vh]">
           {/* Background image */}
           <Image
@@ -42,19 +42,19 @@ export default function Home() {
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
-            <h1 className="text-5xl md:text-6xl font-serif mb-6 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-serif mb-6 font-bold leading-snug">
               Psychological Care for
               <br />
               Change, Insight, and Well-Being
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mb-12 leading-relaxed">
+            <p className="text-lg md:text-2xl max-w-6xl mb-12 leading-relaxed font-serif">
               Offering individual psychotherapy for adults via telehealth in
               Michigan and
               <span className="underline"> most U.S. states</span> through
               PSYPACT participation.
             </p>
-            <button className="bg-[#9db7ae] hover:bg-[#8aa399] text-white uppercase px-10 py-4 rounded-full text-sm font-medium tracking-wider">
-              Schedule a Consultation
+            <button className="custom-ellipse-btn">
+              SCHEDULE A CONSULTATION
             </button>
           </div>
         </div>
