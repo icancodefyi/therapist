@@ -190,7 +190,7 @@ export default function Home() {
               <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
                 <Image
                   src="/relationship.png"
-                  alt="Trauma and grief therapy"
+                  alt="Relationship counseling"
                   fill
                   className="object-cover"
                 />
@@ -212,7 +212,7 @@ export default function Home() {
             <div className="text-center max-w-md mx-auto">
               <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
                 <Image
-                  src="/immigrant.png"
+                  src="/trauma.png"
                   alt="Second-generation therapy"
                   fill
                   className="object-cover"
@@ -360,7 +360,7 @@ export default function Home() {
       <footer className="bg-[#f3f0e8] py-12 font-serif">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h3 className="text-4xl font-medium text-gray-800 mb-4">
-            Jennifer Halim, Ph.D., Licensed Psychologist
+           Dr. Serena Blake, PsyD (Clinical Psychologist)
           </h3>
 
           <div className="space-y-2 text-gray-600 mb-6 text-xl ">
@@ -377,7 +377,7 @@ export default function Home() {
 
           <div className="mt-8 pt-6 border-t border-gray-300">
             <p className="text-xl text-gray-500">
-              © 2025 Jennifer Halim, Ph.D. Psychological Services, PLLC. All
+              © 2025Dr. Serena Blake, PsyD (Clinical Psychologist) PLLC. All
               rights reserved.
             </p>
           </div>
