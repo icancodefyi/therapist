@@ -30,7 +30,7 @@ export default function Home() {
             </svg>
           </div>
           <div className="text-[#3A3A3A]">
-            <h1 className="text-lg font-light">Jennifer Hahm, Ph.D.</h1>
+            <h1 className="text-lg font-light">Dr. Serena Blake, PsyD (Clinical Psychologist)</h1>
             <p className="text-sm">Psychological Services</p>
           </div>
         </div>
