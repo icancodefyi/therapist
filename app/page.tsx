@@ -154,16 +154,16 @@ export default function Home() {
       </div>
 
       {/* Areas of Focus */}
-      <section className="py-24 px-4 bg-[#f9f6ef]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif font-light text-center text-gray-800 mb-20">
+      <section className="py-24 px-14 bg-[#f9f6ef]">
+        <div className="max-w-8xl mx-auto">
+          <h2 className="text-5xl font-serif text-center text-gray-800 mb-20">
             Areas of Focus
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Card 1 */}
-            <div className="text-center max-w-md mx-auto">
-              <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
+            <div className="flex flex-col items-center">
+              <div className="w-[500px] h-[500px] mb-8 relative rounded-full overflow-hidden">
                 <Image
                   src="/anxiety.png"
                   alt="Healthcare provider therapy"
@@ -171,35 +171,35 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl md:text-2xl font-serif font-medium text-gray-800 mb-4">
-                Anxiety & Stress Management
+              <h3 className="text-2xl font-serif font-medium text-gray-800 mb-4 text-center">
+                Therapy for Healthcare Providers and Students
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed">
+              <p className="text-base text-gray-700 leading-relaxed text-center px-4">
                 The care you provide for others may be driving you to seek
                 therapy, whether due to burnout, compassion fatigue, imposter
-                syndrome, or perfectionism. Whether you're in pre-professional
-                school, undergoing training, or reflecting on a long career in
-                healthcare, we can address the unique stressors of your
-                professional environment along with any challenges you may be
-                facing in other areas of your life.
+                syndrome, people pleasing tendencies, or perfectionism. Whether
+                you're in pre-professional school, undergoing training, or
+                reflecting on a long career in healthcare, we can address the
+                unique stressors of your professional environment along with any
+                challenges you may be facing in other areas of your life.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="text-center max-w-md mx-auto">
-              <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
+            <div className="flex flex-col items-center">
+              <div className="w-[500px] h-[500px] mb-8 relative rounded-full overflow-hidden">
                 <Image
                   src="/relationship.png"
-                  alt="Relationship counseling"
+                  alt="Trauma and grief therapy"
                   fill
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl md:text-2xl font-serif font-medium text-gray-800 mb-4">
-                Relationship Counseling
+              <h3 className="text-2xl font-serif font-medium text-gray-800 mb-4 text-center">
+                Therapy for Trauma and Grief
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed">
-                Life’s challenges, whether a difficult childhood, a traumatic
+              <p className="text-base text-gray-700 leading-relaxed text-center px-4">
+                Life's challenges, whether a difficult childhood, a traumatic
                 event or series of events, or the loss of someone or something
                 deeply meaningful, can lead to profound experiences of trauma
                 and grief. Therapy offers a supportive space to process these
@@ -209,19 +209,19 @@ export default function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="text-center max-w-md mx-auto">
-              <div className="w-80 h-80 mx-auto mb-8 relative rounded-full overflow-hidden shadow-md">
+            <div className="flex flex-col items-center">
+              <div className="w-[500px] h-[500px] mb-8 relative rounded-full overflow-hidden">
                 <Image
                   src="/trauma.png"
-                  alt="Second-generation therapy"
+                  alt="Second-generation immigrant therapy"
                   fill
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-xl md:text-2xl font-serif font-medium text-gray-800 mb-4">
-                Trauma Recovery
+              <h3 className="text-2xl font-serif font-medium text-gray-800 mb-4 text-center">
+                Therapy for Second Generation Individuals In Immigrant Families
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed">
+              <p className="text-base text-gray-700 leading-relaxed text-center px-4">
                 Second-generation individuals in immigrant families, born in the
                 U.S. to at least one parent born abroad, often navigate the
                 complexities of multiple cultures and diverse expectations. This
@@ -347,11 +347,12 @@ export default function Home() {
               Get in Touch
             </h2>
             <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Ready to take the first step toward healing and growth? I'm here to support you on your journey. 
-              Please fill out the form below and I'll get back to you within 24-48 hours.
+              Ready to take the first step toward healing and growth? I'm here
+              to support you on your journey. Please fill out the form below and
+              I'll get back to you within 24-48 hours.
             </p>
           </div>
-          
+
           <ContactForm />
         </div>
       </section>
@@ -360,7 +361,7 @@ export default function Home() {
       <footer className="bg-[#f3f0e8] py-12 font-serif">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h3 className="text-4xl font-medium text-gray-800 mb-4">
-           Dr. Serena Blake, PsyD (Clinical Psychologist)
+            Dr. Serena Blake, PsyD (Clinical Psychologist)
           </h3>
 
           <div className="space-y-2 text-gray-600 mb-6 text-xl ">
