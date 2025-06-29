@@ -244,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-12 sm:py-16 md:py-24 mt-8 sm:mt-12 md:mt-14 px-6 md:px-8 bg-[#fefefe] min-h-screen">
+      <section className="py-12 sm:py-16 md:py-24 mt-8 sm:mt-12 md:mt-14 px-6 md:px-8 bg-[#fefefe] min-h-screen" id="about">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Text Content */}
           <div className="text-[#7e7e6b] order-2 md:order-1">
@@ -302,7 +302,7 @@ export default function Home() {
       </section>
 
       {/* Quote Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-[#f9f6ef] flex items-center justify-center">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#f9f6ef] flex items-center justify-center" id="quote">
         <div className="max-w-6xl mx-auto text-center px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-light text-gray-800 leading-none mb-8 md:mb-10">
             Therapy can be a space where you invest in yourself
@@ -331,7 +331,7 @@ export default function Home() {
 
       {/* Areas of Focus */}
       <section className="py-12 sm:py-16 md:py-24 px-6 sm:px-8 md:px-14 bg-[#f9f6ef]">
-        <div className="max-w-8xl mx-auto">
+        <div className="max-w-8xl mx-auto" id="services">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center text-gray-800 mb-12 sm:mb-16 md:mb-20">
             Areas of Focus
           </h2>
@@ -412,7 +412,7 @@ export default function Home() {
       </section>
 
       {/* Rates and Insurance */}
-      <section className="py-12 sm:py-16 md:py-24 bg-[#94b0b0]">
+      <section className="py-12 sm:py-16 md:py-24 bg-[#94b0b0]" id="rates">
         <div className="max-w-6xl mx-auto text-center px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-6 sm:mb-8">
             Rates and Insurance
@@ -455,7 +455,7 @@ export default function Home() {
       </section>
 
       {/* Final Quote Section */}
-      <section className="relative py-72">
+      <section className="relative py-72" >
         <div className="absolute inset-0">
           <Image
             src="/bg-below.png"
@@ -478,7 +478,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section  */}
-      <section className="py-24 px-6 bg-[#f3f0e8]">
+      <section className="py-24 px-6 bg-[#f3f0e8]" id="faq">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif font-light text-center text-gray-800 mb-16">
             Frequently Asked Questions
@@ -516,7 +516,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 px-6 bg-[#fefefe]">
+      <section className="py-24 px-6 bg-[#fefefe]" id="contact">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-light text-gray-800 mb-6">
