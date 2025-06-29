@@ -60,9 +60,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hamburger Button */}
+          {/* Hamburger Button - Only visible on mobile */}
           <button
-            className={`relative z-50 flex items-center justify-center w-10 h-10 focus:outline-none group ${isMenuOpen ? 'menu-open' : ''}`}
+            className={`md:hidden relative z-50 flex items-center justify-center w-10 h-10 focus:outline-none group ${isMenuOpen ? 'menu-open' : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
