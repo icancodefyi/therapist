@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import "../app/globals.css";
 import {
@@ -12,33 +13,318 @@ export default function Home() {
   return (
     <div className="min-h-[100vh] bg-white">
       {/* Header */}
-      <header className="absolute top-0 left-0 z-10 p-6">
-        <div className="flex items-center">
-          <div className="mr-2">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 5L5 20M20 5L35 20M5 20L20 35M35 20L20 35"
-                stroke="#3A3A3A"
-                strokeWidth="2"
-              />
-            </svg>
+      <header className="absolute top-0 left-0 z-50 w-full bg-transparent">
+        <div className="flex items-center justify-between px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10">
+          <div className="flex items-center space-x-4">
+            <div className="flex-shrink-0">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+              >
+                <path
+                  d="M20 5L5 20M20 5L35 20M5 20L20 35M35 20L20 35"
+                  stroke="#4A4A4A"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+            <div className="text-[#4A4A4A]">
+              <h1 className="text-base sm:text-lg md:text-xl font-light leading-tight">
+                Dr. Serena Blake, PsyD
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg font-light leading-tight">
+                Psychological Services
+              </p>
+            </div>
           </div>
-          <div className="text-[#3A3A3A]">
-            <h1 className="text-lg font-light">Dr. Serena Blake, PsyD (Clinical Psychologist)</h1>
-            <p className="text-sm">Psychological Services</p>
+
+          {/* Hamburger Button */}
+          <button
+            id="menu-toggle"
+            className="relative z-50 flex items-center justify-center w-10 h-10 focus:outline-none group"
+            onClick={() => {
+              const menuToggle = document.getElementById("menu-toggle");
+              const mobileMenu = document.getElementById("mobile-menu");
+              const menuOverlay = document.getElementById("menu-overlay");
+              const body = document.body;
+              
+              if (mobileMenu && menuOverlay) {
+                mobileMenu.classList.remove("translate-x-full");
+                menuOverlay.classList.remove("hidden");
+                body.style.overflow = "hidden";
+                
+                if (menuToggle) {
+                  menuToggle.classList.add("menu-open");
+                }
+              }
+            }}
+            aria-label="Toggle menu"
+          >
+            <div className="hamburger-lines">
+              <span className="line line-1"></span>
+              <span className="line line-2"></span>
+              <span className="line line-3"></span>
+            </div>
+          </button>
+
+          {/* Full Screen Side Menu */}
+          <div
+            id="mobile-menu"
+            className="fixed top-0 right-0 w-full h-full bg-[#f8f8f8] transform translate-x-full transition-transform duration-500 ease-out z-40"
+          >
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 border-b border-gray-200">
+                <div className="flex items-center space-x-4">
+                  <div className="flex-shrink-0">
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-8 h-8 sm:w-10 sm:h-10"
+                    >
+                      <path
+                        d="M20 5L5 20M20 5L35 20M5 20L20 35M35 20L20 35"
+                        stroke="#4A4A4A"
+                        strokeWidth="2"
+                      />
+                    </svg>
+                  </div>
+                  <div className="text-[#4A4A4A]">
+                    <h1 className="text-base sm:text-lg font-light leading-tight">
+                      Dr. Serena Blake, PsyD
+                    </h1>
+                    <p className="text-sm sm:text-base font-light leading-tight">
+                      Psychological Services
+                    </p>
+                  </div>
+                </div>
+                
+                <button
+                  id="menu-close"
+                  onClick={() => {
+                    const menuToggle = document.getElementById("menu-toggle");
+                    const mobileMenu = document.getElementById("mobile-menu");
+                    const menuOverlay = document.getElementById("menu-overlay");
+                    const body = document.body;
+                    
+                    if (mobileMenu && menuOverlay) {
+                      mobileMenu.classList.add("translate-x-full");
+                      menuOverlay.classList.add("hidden");
+                      body.style.overflow = "auto";
+                      
+                      if (menuToggle) {
+                        menuToggle.classList.remove("menu-open");
+                      }
+                    }
+                  }}
+                  className="text-[#4A4A4A] hover:text-gray-600 transition-colors duration-200 p-2"
+                  aria-label="Close menu"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Navigation */}
+              <nav className="flex-1 px-6 py-12 sm:px-8 md:px-12">
+                <ul className="space-y-8">
+                  <li>
+                    <a
+                      href="#about"
+                      className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
+                      onClick={() => {
+                        const menuToggle = document.getElementById("menu-toggle");
+                        const mobileMenu = document.getElementById("mobile-menu");
+                        const menuOverlay = document.getElementById("menu-overlay");
+                        const body = document.body;
+                        
+                        if (mobileMenu && menuOverlay) {
+                          mobileMenu.classList.add("translate-x-full");
+                          menuOverlay.classList.add("hidden");
+                          body.style.overflow = "auto";
+                          
+                          if (menuToggle) {
+                            menuToggle.classList.remove("menu-open");
+                          }
+                        }
+                      }}
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
+                      onClick={() => {
+                        const menuToggle = document.getElementById("menu-toggle");
+                        const mobileMenu = document.getElementById("mobile-menu");
+                        const menuOverlay = document.getElementById("menu-overlay");
+                        const body = document.body;
+                        
+                        if (mobileMenu && menuOverlay) {
+                          mobileMenu.classList.add("translate-x-full");
+                          menuOverlay.classList.add("hidden");
+                          body.style.overflow = "auto";
+                          
+                          if (menuToggle) {
+                            menuToggle.classList.remove("menu-open");
+                          }
+                        }
+                      }}
+                    >
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#rates"
+                      className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
+                      onClick={() => {
+                        const menuToggle = document.getElementById("menu-toggle");
+                        const mobileMenu = document.getElementById("mobile-menu");
+                        const menuOverlay = document.getElementById("menu-overlay");
+                        const body = document.body;
+                        
+                        if (mobileMenu && menuOverlay) {
+                          mobileMenu.classList.add("translate-x-full");
+                          menuOverlay.classList.add("hidden");
+                          body.style.overflow = "auto";
+                          
+                          if (menuToggle) {
+                            menuToggle.classList.remove("menu-open");
+                          }
+                        }
+                      }}
+                    >
+                      Rates & Insurance
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#faq"
+                      className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
+                      onClick={() => {
+                        const menuToggle = document.getElementById("menu-toggle");
+                        const mobileMenu = document.getElementById("mobile-menu");
+                        const menuOverlay = document.getElementById("menu-overlay");
+                        const body = document.body;
+                        
+                        if (mobileMenu && menuOverlay) {
+                          mobileMenu.classList.add("translate-x-full");
+                          menuOverlay.classList.add("hidden");
+                          body.style.overflow = "auto";
+                          
+                          if (menuToggle) {
+                            menuToggle.classList.remove("menu-open");
+                          }
+                        }
+                      }}
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#contact"
+                      className="block text-2xl sm:text-3xl font-light text-[#4A4A4A] hover:text-[#94b0b0] transition-colors duration-300 py-2"
+                      onClick={() => {
+                        const menuToggle = document.getElementById("menu-toggle");
+                        const mobileMenu = document.getElementById("mobile-menu");
+                        const menuOverlay = document.getElementById("menu-overlay");
+                        const body = document.body;
+                        
+                        if (mobileMenu && menuOverlay) {
+                          mobileMenu.classList.add("translate-x-full");
+                          menuOverlay.classList.add("hidden");
+                          body.style.overflow = "auto";
+                          
+                          if (menuToggle) {
+                            menuToggle.classList.remove("menu-open");
+                          }
+                        }
+                      }}
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              {/* Footer */}
+              <div className="px-6 py-8 sm:px-8 md:px-12 border-t border-gray-200">
+                <a
+                  href="#contact"
+                  className="block w-full py-4 text-center bg-[#94b0b0] text-white rounded-lg hover:bg-[#8aa399] transition-colors duration-300 text-lg font-light"
+                  onClick={() => {
+                    const menuToggle = document.getElementById("menu-toggle");
+                    const mobileMenu = document.getElementById("mobile-menu");
+                    const menuOverlay = document.getElementById("menu-overlay");
+                    const body = document.body;
+                    
+                    if (mobileMenu && menuOverlay) {
+                      mobileMenu.classList.add("translate-x-full");
+                      menuOverlay.classList.add("hidden");
+                      body.style.overflow = "auto";
+                      
+                      if (menuToggle) {
+                        menuToggle.classList.remove("menu-open");
+                      }
+                    }
+                  }}
+                >
+                  Schedule Consultation
+                </a>
+              </div>
+            </div>
           </div>
+
+          {/* Overlay */}
+          <div
+            id="menu-overlay"
+            onClick={() => {
+              const menuToggle = document.getElementById("menu-toggle");
+              const mobileMenu = document.getElementById("mobile-menu");
+              const menuOverlay = document.getElementById("menu-overlay");
+              const body = document.body;
+              
+              if (mobileMenu && menuOverlay) {
+                mobileMenu.classList.add("translate-x-full");
+                menuOverlay.classList.add("hidden");
+                body.style.overflow = "auto";
+                
+                if (menuToggle) {
+                  menuToggle.classList.remove("menu-open");
+                }
+              }
+            }}
+            className="fixed inset-0 bg-black bg-opacity-30 z-30 hidden backdrop-blur-sm"
+          ></div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full px-20 py-40 bg-[#f3f0e8]">
-        <div className="relative w-full h-[80vh]">
+      <section className="relative w-full px-4 sm:px-8 md:px-12 lg:px-20 py-20 sm:py-32 md:py-40 bg-[#f3f0e8] hero-section-mobile">
+        <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] hero-image-container-mobile">
           {/* Background image */}
           <Image
             src="/bg-below.png"
@@ -48,20 +334,23 @@ export default function Home() {
             priority
           />
 
+          {/* Mobile background overlay for better text contrast */}
+          <div className="hero-background-overlay-mobile md:hidden"></div>
+
           {/* Content */}
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
-            <h1 className="text-5xl md:text-6xl font-serif mb-6 font-bold leading-snug">
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6 hero-content-wrapper-mobile">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 font-bold leading-snug hero-mobile-title hero-title-mobile-enhanced">
               Psychological Care for
               <br />
               Change, Insight, and Well-Being
             </h1>
-            <p className="text-lg md:text-2xl max-w-6xl mb-12 leading-relaxed font-serif">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-6xl mb-12 leading-relaxed font-serif px-4 hero-mobile-subtitle hero-subtitle-mobile-enhanced">
               Offering individual psychotherapy for adults via telehealth in
               Michigan and
               <span className="underline"> most U.S. states</span> through
               PSYPACT participation.
             </p>
-            <button className="custom-ellipse-btn">
+            <button className="custom-ellipse-btn hero-mobile-button">
               SCHEDULE A CONSULTATION
             </button>
           </div>
@@ -69,14 +358,14 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-24 mt-14 px-6 md:px-8 bg-[#fefefe] h-screen">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <section className="py-12 sm:py-16 md:py-24 mt-8 sm:mt-12 md:mt-14 px-6 md:px-8 bg-[#fefefe] min-h-screen">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
           {/* Text Content */}
-          <div className="text-[#7e7e6b]">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#7e7e6b] mb-6">
+          <div className="text-[#7e7e6b] order-2 md:order-1">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#7e7e6b] mb-6">
               About Dr. Serena Blake
             </h2>
-            <div className="space-y-6 text-lg font-2xl leading-relaxed font-light text-[#7e7e6b]">
+            <div className="space-y-6 text-base sm:text-lg font-2xl leading-relaxed font-light text-[#7e7e6b]">
               <p>
                 Dr. Serena Blake is a licensed clinical psychologist (PsyD)
                 based in Los Angeles, CA, with eight years of experience and
@@ -109,8 +398,8 @@ export default function Home() {
           </div>
 
           {/* Image */}
-          <div className="flex justify-center md:justify-end">
-            <div className="w-[400px] h-[680px] relative rounded-lg overflow-hidden shadow-md">
+          <div className="flex justify-center md:justify-end order-1 md:order-2">
+            <div className="w-[280px] h-[400px] sm:w-[320px] sm:h-[480px] md:w-[400px] md:h-[680px] relative rounded-lg overflow-hidden shadow-md">
               <Image
                 src="/serena.png"
                 alt="Dr. Serena Blake"
@@ -121,22 +410,23 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center mt-20 py-20">
+        <div className="flex justify-center mt-12 sm:mt-16 md:mt-20 py-12 sm:py-16 md:py-20">
           <div className="w-[70vw] border-t border-gray-400" />
         </div>
       </section>
 
       {/* Quote Section */}
-      <section className="py-20 bg-[#f9f6ef] flex items-center justify-center">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#f9f6ef] flex items-center justify-center">
         <div className="max-w-6xl mx-auto text-center px-6">
-          <h2 className="text-4xl md:text-5xl font-serif font-light text-gray-800 leading-none mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-light text-gray-800 leading-none mb-8 md:mb-10">
             Therapy can be a space where you invest in yourself
-            <br />
-            one of the highest forms of self-care.
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>one of the highest forms of
+            self-care.
           </h2>
 
           <div className="flex justify-center">
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-10 max-w-6xl text-center">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-8 md:mb-10 max-w-6xl text-center">
               You may be led to therapy by anxiety, depression, relationship
               stress, past or recent trauma, grief and loss, self-esteem issues,
               or challenges with family, parenting, or parental relationships.
@@ -154,16 +444,16 @@ export default function Home() {
       </div>
 
       {/* Areas of Focus */}
-      <section className="py-24 px-14 bg-[#f9f6ef]">
+      <section className="py-12 sm:py-16 md:py-24 px-6 sm:px-8 md:px-14 bg-[#f9f6ef]">
         <div className="max-w-8xl mx-auto">
-          <h2 className="text-5xl font-serif text-center text-gray-800 mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center text-gray-800 mb-12 sm:mb-16 md:mb-20">
             Areas of Focus
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
             {/* Card 1 */}
             <div className="flex flex-col items-center">
-              <div className="w-[500px] h-[500px] mb-8 relative rounded-full overflow-hidden">
+              <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mb-6 sm:mb-8 relative rounded-full overflow-hidden">
                 <Image
                   src="/anxiety.png"
                   alt="Healthcare provider therapy"
@@ -171,10 +461,10 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-serif font-medium text-gray-800 mb-4 text-center">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-medium text-gray-800 mb-3 sm:mb-4 text-center">
                 Therapy for Healthcare Providers and Students
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed text-center px-4">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center px-4">
                 The care you provide for others may be driving you to seek
                 therapy, whether due to burnout, compassion fatigue, imposter
                 syndrome, people pleasing tendencies, or perfectionism. Whether
@@ -187,7 +477,7 @@ export default function Home() {
 
             {/* Card 2 */}
             <div className="flex flex-col items-center">
-              <div className="w-[500px] h-[500px] mb-8 relative rounded-full overflow-hidden">
+              <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mb-6 sm:mb-8 relative rounded-full overflow-hidden">
                 <Image
                   src="/relationship.png"
                   alt="Trauma and grief therapy"
@@ -195,10 +485,10 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-serif font-medium text-gray-800 mb-4 text-center">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-medium text-gray-800 mb-3 sm:mb-4 text-center">
                 Therapy for Trauma and Grief
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed text-center px-4">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center px-4">
                 Life's challenges, whether a difficult childhood, a traumatic
                 event or series of events, or the loss of someone or something
                 deeply meaningful, can lead to profound experiences of trauma
@@ -210,7 +500,7 @@ export default function Home() {
 
             {/* Card 3 */}
             <div className="flex flex-col items-center">
-              <div className="w-[500px] h-[500px] mb-8 relative rounded-full overflow-hidden">
+              <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mb-6 sm:mb-8 relative rounded-full overflow-hidden">
                 <Image
                   src="/trauma.png"
                   alt="Second-generation immigrant therapy"
@@ -218,10 +508,10 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-serif font-medium text-gray-800 mb-4 text-center">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-medium text-gray-800 mb-3 sm:mb-4 text-center">
                 Therapy for Second Generation Individuals In Immigrant Families
               </h3>
-              <p className="text-base text-gray-700 leading-relaxed text-center px-4">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center px-4">
                 Second-generation individuals in immigrant families, born in the
                 U.S. to at least one parent born abroad, often navigate the
                 complexities of multiple cultures and diverse expectations. This
@@ -236,24 +526,24 @@ export default function Home() {
       </section>
 
       {/* Rates and Insurance */}
-      <section className="py-24 bg-[#94b0b0]">
+      <section className="py-12 sm:py-16 md:py-24 bg-[#94b0b0]">
         <div className="max-w-6xl mx-auto text-center px-6">
-          <h2 className="text-4xl font-serif  text-gray-800 mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-800 mb-6 sm:mb-8">
             Rates and Insurance
           </h2>
 
           <div className="space-y-4 text-gray-700">
-            <p className="text-lg">
+            <p className="text-base sm:text-lg">
               <strong>Session Fee:</strong> $200 / individual session & $240 /
               couples session
             </p>
-            <p className="text-lg">
+            <p className="text-base sm:text-lg">
               <strong>Insurance:</strong> Out-of-network provider
             </p>
           </div>
 
-          <div className="mt-8 max-w-auto mx-auto">
-            <p className="text-gray-600 leading-relaxed">
+          <div className="mt-6 sm:mt-8 max-w-auto mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               I accept both private pay and insurance. I am in-network with BCBS
               and Aetna.
             </p>
